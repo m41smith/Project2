@@ -3,7 +3,7 @@ import random
 
 
 def main():
-    win = graphics.GraphWin("Drawing Shapes", 500, 500)
+    win = graphics.GraphWin("Drawing Shapes", 720, 480)
     num = int(input("How many shapes do you want?"))
     tShape = 0
     while tShape < num:
@@ -31,7 +31,7 @@ def main():
             cx = int(input("Give the center X coordinate for the Circle."))
             cy = int(input("Give the center Y coordinate for the Circle."))
             radius = int(input("Now Give the Radius of the Circle."))
-            c = graphics.Circle((cx, cy), radius)
+            c = graphics.Circle(graphics.Point(cx, cy), radius)
             c.draw(win)
             tShape = tShape + 1
 
@@ -48,7 +48,8 @@ def main():
         elif let.lower() == "t":
             x = int(input("Give the X coordinate of the text."))
             y = int(input("Now give the Y coordinate of the text."))
-            t = graphics.Text(graphics.Point(x, y), "text")
+            text = input("Input the text you want shown.")
+            t = graphics.Text(graphics.Point(x, y), text)
             t.draw(win)
             tShape = tShape + 1
 
@@ -61,6 +62,8 @@ def main():
 
         else:
             print("I don't believe I know that shape.")
+    win.getMouse()
+    win.close()
 
 
 main()
